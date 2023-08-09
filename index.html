@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Ice Cream and toppings by Shraddha Kedar </title>
+<style>
+ *{font-size:60px;}
+ body{background-image:url("img.jpg");}
+
+</style>
+<script>
+function show()
+{
+event.preventDefault();
+let name = document.getElementById("name");
+let or = document.getElementById("or");
+let tf = document.getElementById("tf");
+let cs = document.getElementById("cs");
+let sp = document.getElementById("sp");
+let ans = document.getElementById("ans");
+
+let topping ="";
+if (or.checked) topping += " Oreo ";
+if (tf.checked) topping += " Tutti frui+ty ";
+if (cs.checked) topping += " Chocolate Syrup ";
+if (sp.checked) topping += " Sprinkles ";
+
+let msg =  name.value + " ice cream with"  + topping + "toppings";
+ans.innerHTML = msg;
+
+if(name.value =="")
+{
+alert("name cannot be empty");
+ans.innerHTML ="";
+name.focus();
+return;
+}
+
+else if(name.value.trim() =="")
+{
+alert("name cannot be only spaces");
+name.value ="";
+ans.innerHTML ="";
+name.focus();
+return;
+}
+
+else if(!name.value.match(/^[A-Za-z ]+$/))
+{
+alert("name should contain only alpha");
+name.value ="";
+ans.innerHTML ="";
+name.focus();
+return;
+}
+
+
+
+}
+
+</script>
+
+
+</head>
+<body>
+<center>
+<h1>Ice Cream App</h1>
+<form onsubmit="show()">
+<input type="text" placeholder="enter icecream name" id="name"/>
+<br><br>
+<input type="checkbox" id="or" />Oreo
+<input type="checkbox"  id="tf" />Tutti fruity
+<input type="checkbox"  id="cs"/>Chocolate Syrup
+<input type="checkbox" id="sp"/>Sprinkles
+<br><br>
+<input type="submit" value = "Order" />
+<h2 id="ans"></h2>
+</form>
+</center>
+
+
+</body>
+
+
+
+
+</html>
